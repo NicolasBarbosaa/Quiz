@@ -53,6 +53,13 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - assets/golfinho-png.png
+    - assets/passaro.png
+    - assets/tatu-png.png
+    - assets/animais.png
+    - assets/astrologia.png
+    - assets/robo.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

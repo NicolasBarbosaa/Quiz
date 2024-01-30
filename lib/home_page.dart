@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50)),
                     child: Row(
                       children: [
-                        Image.asset('asset', width: 50, height:50),
+                        Image.asset('assets/animais.png', width: 50, height:50),
                         Text('Animais', style: GoogleFonts.roboto(color: Colors.white),)
                       ],
                     ),
@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50)),
                     child: Row(
                       children: [
-                        Image.asset('asset', width: 50, height:50),
+                        Image.asset('assets/astrologia.png', width: 50, height:50),
                         Text('Astrologia', style: GoogleFonts.roboto(color: Colors.white),)
                       ],
                     ),
@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50)),
                     child: Row(
                       children: [
-                        Image.asset('asset', width: 50, height:50),
+                        Image.asset('assets/robo', width: 50, height:50),
                         Text('Tecnologia', style: GoogleFonts.roboto(color: Colors.white),)
                       ],
                     ),
@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
                 elevation: 4,
                 child: Column(
                   children: [
-                    Image.asset('asset', width: 150, height: 150),
+                    Image.asset('assets/golfinho-png.png', width: 150, height: 150),
                     Text('Mostre todo seu conhecimento\nmarítimo!',
                     style: GoogleFonts.indieFlower(fontSize: 24, fontWeight: FontWeight.bold)),
                     ListTile(
@@ -120,7 +120,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Image.asset('asset', width: 50, height: 50),
+                          child: Image.asset('assets/tatu-png.png', width: 50, height: 50),
                           ),
                           Text('Mostre seu conhecimento\nterrestre!',
                           style: GoogleFonts.indieFlower(fontSize: 16, fontWeight: FontWeight.bold)),
@@ -142,7 +142,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Image.asset('asset', width: 50, height: 50),
+                          child: Image.asset('assets/passaro.png', width: 50, height: 50),
                           ),
                           Text('Mostre seu conhecimento\naério!',
                             style: GoogleFonts.indieFlower(fontSize: 16, fontWeight: FontWeight.bold)),

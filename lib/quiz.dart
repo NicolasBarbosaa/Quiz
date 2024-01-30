@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quizflutter/home_page.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -12,6 +13,8 @@ class _QuizState extends State<Quiz> {
   int currentQuestionIndex = 0; // indice da pergunta atual
   String? selectedAnswer;
   bool? isCorrect;
+  bool quizConcluido = false;
+  int questoesAcertadas =0;
   final List<Map<String, dynamic>> questions = [
     {
       'question': 'Qual desses animais é conhecido por sua impressionante capacidade de mudar de cor?',
@@ -34,7 +37,12 @@ class _QuizState extends State<Quiz> {
         currentQuestionIndex++;
       });
     }else{
-        //fim do quiz
+      setState(() {
+        quizConcluido=true;
+        Future.delayed(Duration(seconds: 5), (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) => new HomePage()));
+        });
+      });
       }
   }
 
@@ -49,8 +57,40 @@ class _QuizState extends State<Quiz> {
     });
   }
 
-  @override
+ @override
   Widget build(BuildContext context) {
+    if(quizConcluido){
+        return Scaffold(
+              appBar: AppBar(
+                title: Text('Quiz finalizado', style: GoogleFonts.nunitoSans(fontSize: 18, fontWeight: FontWeight.bold),),
+                centerTitle: true,
+              ),
+              body: ListView(
+                children: [
+                    SizedBox(
+                      height: 800,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Card(
+                          color: Colors.blueGrey[100],
+                          elevation: 10,
+                          child: Text(
+                            'Quiz Finalizado. \nParabéns!!! \n Você acertou $questoesAcertadas questões!', 
+                            style: GoogleFonts.arimo(fontSize: 60, fontWeight: FontWeight.bold),
+                          ),
+                                    ),
+                        ],
+                      ),
+                    ),
+                  
+                ],
+              ),
+            );
+    }
+
+
     var currentquestion = questions[currentQuestionIndex];
     return Scaffold(
       appBar: AppBar(
@@ -75,6 +115,7 @@ class _QuizState extends State<Quiz> {
               Color? buttonColor;
               if(isSelected){
                 buttonColor= isCorrect! ? Colors.green : Colors.red;
+                isCorrect! ? questoesAcertadas++ : null;
               }
 
               return meuBtn(resposta, () => handleAnswer(resposta), buttonColor);
@@ -84,7 +125,10 @@ class _QuizState extends State<Quiz> {
         ),
     );
   }
-}
+ }
+
+
+
 
 Widget meuBtn(String resposta, VoidCallback onPressed, Color? color) => 
   Container(
