@@ -15,8 +15,7 @@ class HomePage extends StatelessWidget {
           Icon(Icons.search)
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
